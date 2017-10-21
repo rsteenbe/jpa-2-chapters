@@ -1,0 +1,5 @@
+<persistence>
+    <persistence-unit name="CustomerService">
+        <jta-data-source>java:jboss/jdbc/ApplicationDS</jta-data-source>
+    </persistence-unit>
+</persistence>

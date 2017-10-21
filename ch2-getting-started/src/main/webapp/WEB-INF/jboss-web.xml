@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>jpa-2-chapters/ch-2-getting-started</context-root>
+</jboss-web>
