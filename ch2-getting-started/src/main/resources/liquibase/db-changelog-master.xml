@@ -14,7 +14,7 @@
             <column name="name" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="active" type="boolean" defaultValueBoolean="true"/>
+            <column name="length" type="double precision"/>
         </createTable>
     </changeSet>
 

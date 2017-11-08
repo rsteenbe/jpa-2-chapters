@@ -6,15 +6,35 @@
 
     <groupId>groupId</groupId>
     <artifactId>ch2-getting-started</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <!-- Create table with colums using Liquibase -->
         <dependency>
             <groupId>org.liquibase.ext</groupId>
             <artifactId>liquibase-postgresql</artifactId>
             <version>3.0</version>
+        </dependency>
+        <!-- Use Hibernate as ORM framework -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.2.10.Final</version>
+        </dependency>
+        <!-- Use PostgreSQL as database -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.1.4</version>
+        </dependency>
+        <!-- Use Slf4J as logging framework -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+            <!--<scope>test</scope>-->
         </dependency>
     </dependencies>
 
@@ -41,6 +61,28 @@
                         <phase>process-resources</phase>
                         <goals>
                             <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.jpa2chapters.ch2gettingstarted.CustomerTest</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
